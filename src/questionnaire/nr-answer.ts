@@ -16,6 +16,9 @@ export class NrAnswer implements ComponentBind, ComponentUnbind {
   @observable
   private reasonOther: string = "";
 
+  @observable
+  private reasonForReadingOther: string = "";
+
   private yesnoOptions = [
     'Yes',
     'No',
@@ -160,6 +163,49 @@ export class NrAnswer implements ComponentBind, ComponentUnbind {
     'Other device with internet access such as a smartwatch or an iPod',
   ];
 
+  private reasonForReadingOptions = [
+    {
+      title: 'To improve health and well being',
+      description: 'For example to relax, to fall asleep or to improve mental health',
+    },
+    {
+      title: 'Intellectual improvement',
+      description: 'For example to gain general knowledge, or to learn a language',
+    },
+    {
+      title: 'Personal development',
+      description: ' For example to increase creativeness, self-esteem or empathy',
+    },
+    {
+      title: 'Social reasons',
+      description: 'For example to take part in cultural activities or to enhance understanding of others',
+    },
+    {
+      title: 'Enjoyment',
+      description: 'For example you enjoyed reading the story, or it made you happy',
+    },
+    {
+      title: 'Boredom',
+      description: 'For example to avoid boredom or to pass time',
+    },
+    {
+      title: 'Getting the payment for completing the study',
+      description: '',
+    },
+    {
+      title: 'To complete the study participation',
+      description: '',
+    },
+    {
+      title: 'I read the story because I had to',
+      description: '',
+    },
+    {
+      title: 'I did not read the story',
+      description: '',
+    },
+  ]
+
   private get name(): string {
     return 'question-' + this.question.number;
   }
@@ -218,6 +264,10 @@ export class NrAnswer implements ComponentBind, ComponentUnbind {
 
   private reasonOtherChanged() {
     this.value = this.reasonOther;
+  }
+
+  private reasonForReadingOtherChanged() {
+    this.value = this.reasonForReadingOther;
   }
 
 }

@@ -96,6 +96,24 @@
       max="150" step="10" required.bind="question.isRequired" />
     <p><b>${ timeSpentHours }</b> hours <b>${ timeSpentMinutes }</b> minutes.</p>
   </div>
+  <div if.bind="question.questionType === 'reasonForReading'" class="custom-control custom-radio">
+    <div repeat.for="option of reasonForReadingOptions" class="custom-control custom-radio">
+      <input type="radio" class="custom-control-input" id="${ name }-reason-for-reading-${ $index }" name.bind="name"
+        value.bind="option.title" checked.bind="value" required.bind="question.isRequired">
+      <label class="custom-control-label" for="${ name }-reason-for-reading-${ $index }">
+        ${ option.title }
+        <br />
+        <small class="muted">${ option.description }</small>
+      </label>
+    </div>
+    <div class="custom-control custom-radio">
+      <input type="radio" class="custom-control-input" id="${ name }-reason-for-reading-other" name.bind="name"
+        value.bind="reasonForReadingOther" checked.bind="value">
+      <label class="custom-control-label" for="${ name }-reason-for-reading-other">
+        Other: <input type="text" value.bind="reasonForReadingOther" class="form-control" />
+      </label>
+    </div>
+  </div>
   <textarea if.bind="question.questionType==='open'" type="text" value.bind="value" class="form-control"
     name.bind="name" required.bind="question.isRequired"></textarea>
 </template>
