@@ -1,3 +1,4 @@
+import { TrackingService } from './tracking/tracking-service';
 import { ApplicationState } from './state/application-state';
 import { UserService } from './user/user-service';
 import { PLATFORM } from 'aurelia-pal';
@@ -12,6 +13,7 @@ export class App implements ConfiguresRouter {
     private applicationState: ApplicationState,
     private authService: AuthService,
     private userService: UserService,
+    private trackingService: TrackingService,
     private windowTrackingService: WindowTrackingService) {
   }
 
@@ -22,6 +24,7 @@ export class App implements ConfiguresRouter {
 
     config.addAuthorizeStep(this.getAuthorizeStep());
     config.addPreActivateStep(this.getCloseMenuStep());
+    config.addPreActivateStep(this.getTrackEventStep('pageNavigation'));
 
     config.map([
       {
@@ -124,6 +127,18 @@ export class App implements ConfiguresRouter {
       run: async (instruction, next) => {
         applicationState.isMenuOpen = false;
         applicationState.isReading = false;
+
+        return next();
+      }
+    }
+  }
+
+  private getTrackEventStep(eventType: string): PipelineStep {
+    const trackingService = this.trackingService;
+
+    return {
+      run: async (instruction, next) => {
+        trackingService.event(eventType);
 
         return next();
       }
