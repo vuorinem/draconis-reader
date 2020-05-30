@@ -54,7 +54,10 @@
     <div class="form-group" show.bind="isEmailVerified && !isEmailRegistered">
       <label for="code">Participant Code</label>
       <input id="code" type="text" value.bind="participantCode" class="form-control">
-      <small class="form-text text-muted">Please provide the four digit participant code you have been given</small>
+      <small class="form-text text-muted">
+        Please provide the participant code you have been given. It should contain two letters and three numbers, for
+        example AB345.
+      </small>
     </div>
 
     <div class="form-group" show.bind="isEmailVerified">
