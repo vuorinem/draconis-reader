@@ -38,4 +38,17 @@ export class QuestionnaireService {
     await this.userService.load();
   }
 
+  public async sendComplete(): Promise<void> {
+    const response = await this.http
+      .fetch(`/questionnaire/complete`, {
+        method: 'post',
+      });
+
+    if (!response.ok) {
+      throw new Error('Error completing questionnaires');
+    }
+
+    await this.userService.load();
+  }
+
 }

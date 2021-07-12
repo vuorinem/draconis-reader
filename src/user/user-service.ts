@@ -120,4 +120,15 @@ export class UserService {
     return this.userDetails.answeredQuestionnaires.some(q => q === name);
   }
 
+  public async getSurveyId(): Promise<number> {
+    const response = await this.http
+      .fetch('/user/current/survey-id');
+
+    if (response.status === 200) {
+      return await response.json();
+    } else {
+      throw new Error("Could not retrieve survey ID for the user");
+    }
+  }
+
 }

@@ -29,12 +29,8 @@ export class Main {
     } else if (!this.userService.user.isBookSelected) {
       this.router.navigate("/introduction/books");
     } else if (this.userService.isDeadlinePassed || this.userService.user.isBookFinished) {
-      if (!this.userService.isQuestionnaireAnswered('questionnaire21')) {
-        this.router.navigate("/finish/questionnaire21");
-      } else if (!this.userService.isQuestionnaireAnswered('questionnaire22')) {
-        this.router.navigate("/finish/questionnaire22");
-      } else if (!this.userService.isQuestionnaireAnswered('questionnaire3')) {
-        this.router.navigate("/finish/questionnaire3");
+      if (!this.userService.user.hasAnsweredAllQuestionnaires) {
+        this.router.navigate("/finish/questionnaire");
       } else {
         this.router.navigate("/finish/debrief");
       }

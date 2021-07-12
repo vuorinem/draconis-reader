@@ -1,0 +1,34 @@
+<template>
+
+  <div class="row d-flex justify-content-center">
+    <div class="col-md-12 col-lg-8">
+      <h1>End Questionnaire</h1>
+      <div hide.bind="isDone">
+        <p>
+          To access the final questionnaires, click on the link below.
+        </p>
+        <p>
+          <a class="btn btn-lg btn-primary" href="${surveyLink}">
+            Open Survey
+          </a>
+        </p>
+        <p>
+          The link will take you to an external survey system in which the last
+          questionnaires are completed. The system is secure and safe to use,
+          similarly to ORB Reader. Please return to orbreader.com once you have
+          finished answering to the questionnaires in order to finish the study.
+        </p>
+      </div>
+      <div show.bind="isDone">
+        <p>
+          Thank you for completing the surveys! Click 'next' to finish the study.
+        </p>
+        <p>
+          <a class="btn btn-lg btn-primary" href.bind="surveyLink" click.delegate="complete()">
+            Next
+          </a>
+        </p>
+    </div>
+  </div>
+
+</template>
