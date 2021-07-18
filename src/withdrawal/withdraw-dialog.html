@@ -13,6 +13,13 @@
         </button>
       </div>
       <div else>
+        <p>
+          If you want to participate in the giveaway, please fill in your email address below
+        </p>
+        <p>
+          <label for="withdraw-giveaway-email-address">Email address</label>
+          <input class="form-control" type="email" id="withdraw-giveaway-email-address" value.bind="withdrawal.giveawayEmailAddress" />
+        </p>
         <button class="btn btn-danger btn-lg btn-block" click.delegate="confirm()"
           disabled.bind="http.isRequesting">
           Confirm withdrawal
