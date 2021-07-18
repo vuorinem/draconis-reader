@@ -9,5 +9,6 @@ export interface IUserDetails {
   readingSpeedWordsPerMinute: number;
   answeredQuestionnaires: string[];
   hasAnsweredAllQuestionnaires: boolean;
+  hasConfirmedGiveaway: boolean;
   isIntrinsicCondition: boolean | null;
 }

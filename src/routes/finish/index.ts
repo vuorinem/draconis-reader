@@ -24,6 +24,11 @@ export class Index {
         moduleId: PLATFORM.moduleName("./questionnaire"),
       },
       {
+        name: 'giveaway',
+        route: 'giveaway',
+        moduleId: PLATFORM.moduleName("./giveaway"),
+      },
+      {
         name: 'debrief',
         route: 'debrief',
         moduleId: PLATFORM.moduleName("./debrief"),

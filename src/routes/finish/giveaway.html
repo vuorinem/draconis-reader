@@ -1,0 +1,32 @@
+<template>
+
+  <div class="row d-flex justify-content-center">
+    <div class="col-md-12 col-lg-8">
+      <h1>Giveaway</h1>
+      <p>
+        If you would like to participate in a giveaway of four Amazon gift cards, please fill
+        in your email address so that we can notify the winners.
+      </p>
+
+      <form submit.delegate="participate()">
+        <div class="form-group">
+          <label for="giveaway-emailaddress">Email address</label>
+          <input id="giveaway-emailaddress" type="email" value.bind="emailAddress" class="form-control" />
+          <p class="text-muted text-small">
+            The email address will not be used for any other purpose than the giveaway.
+          </p>
+        </div>
+
+        <p>
+          <button type="submit" class="btn btn-primary" disabled.bind="!emailAddress">
+            <span class="oi oi-check"></span> Submit
+          </button>
+          <button class="btn btn-link" click.delegate="skip()">
+            Skip the giveaway
+          </button>
+        </p>
+      </form>
+    </div>
+  </div>
+
+</template>

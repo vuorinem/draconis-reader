@@ -31,6 +31,8 @@ export class Main {
     } else if (this.userService.isDeadlinePassed || this.userService.user.isBookFinished) {
       if (!this.userService.user.hasAnsweredAllQuestionnaires) {
         this.router.navigate("/finish/questionnaire");
+      } else if (!this.userService.user.hasConfirmedGiveaway) {
+        this.router.navigate("/finish/giveaway");
       } else {
         this.router.navigate("/finish/debrief");
       }
